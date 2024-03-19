@@ -1,7 +1,8 @@
 import ctypes
+from lgrad._python.load_so import load_so
 
 class _v32(object):
-    lib = ctypes.CDLL('../../_compiled/_vector_int32.so')
+    lib = load_so("https://github.com/Aadit-Ambadkar/lg-compiled/raw/main/_vector_int32.so")
     lib._create.restype = ctypes.c_void_p
     lib._create.argtypes = []
     lib._delete.restype = None
@@ -25,7 +26,7 @@ class _v32(object):
         return arr
 
 class _v64(object):
-    lib = ctypes.CDLL('../../_compiled/_vector_int64.so')
+    lib = load_so("https://github.com/Aadit-Ambadkar/lg-compiled/raw/main/_vector_int64.so")
     lib._create.restype = ctypes.c_void_p
     lib._create.argtypes = []
     lib._delete.restype = None
