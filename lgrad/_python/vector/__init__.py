@@ -1,1 +1,4 @@
-from .vector import Int32Array, Int64Array, fromVector, fromList
+from .vector import fromVector, fromList
+from .vector32 import Int32Vector
+from .vector64 import Int64Vector
+from .vector_base import Vector
