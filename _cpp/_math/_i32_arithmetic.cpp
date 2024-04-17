@@ -37,10 +37,6 @@ extern "C" {
         return z_opp_i32(f, s, std::multiplies<int32_t>());
     }
 
-    std::vector<int32_t>* z_fdiv_i32(std::vector<int32_t>* f, std::vector<int32_t>* s){
-        return z_opp_i32(f, s, std::divides<int32_t>());
-    }
-
 }
 
 // O_OPPS
@@ -55,10 +51,6 @@ extern "C" {
     
     std::vector<int32_t>* o_mul_i32(std::vector<int32_t>* f, std::vector<int32_t>* s){
         return o_opp_i32(f, s, std::multiplies<int32_t>());
-    }
-
-    std::vector<int32_t>* o_fdiv_i32(std::vector<int32_t>* f, std::vector<int32_t>* s){
-        return o_opp_i32(f, s, std::divides<int32_t>());
     }
 }
 
@@ -75,9 +67,5 @@ extern "C" {
     
     std::vector<int32_t>* v_mul_i32(std::vector<int32_t>* f, std::vector<int32_t>* s, int32_t val){
         return v_opp_i32(f, s, std::multiplies<int32_t>(), val);
-    }
-
-    std::vector<int32_t>* v_fdiv_i32(std::vector<int32_t>* f, std::vector<int32_t>* s, int32_t val){
-        return v_opp_i32(f, s, std::divides<int32_t>(), val);
     }
 }

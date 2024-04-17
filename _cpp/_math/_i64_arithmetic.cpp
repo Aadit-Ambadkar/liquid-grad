@@ -11,15 +11,16 @@ std::vector<int64_t>* v_opp_i64(std::vector<int64_t>* f, std::vector<int64_t>* s
         else if (f->size() == sz1) rvec->push_back(func(val,s->at(i)));
         else if (s->size() == sz1) rvec->push_back(func(f->at(i),val));
     }
+    
     return rvec;
 }
 
 std::vector<int64_t>* z_opp_i64(std::vector<int64_t>* f, std::vector<int64_t>* s, std::function<int64_t(int64_t,int64_t)> func){
-    return v_opp_i64(f, s, func, 0);
+    return v_opp_i64(f, s, func, 0LL);
 }
 
 std::vector<int64_t>* o_opp_i64(std::vector<int64_t>* f, std::vector<int64_t>* s, std::function<int64_t(int64_t,int64_t)> func){
-    return v_opp_i64(f, s, func, 1);
+    return v_opp_i64(f, s, func, 1LL);
 }
 
 // Z_OPPS
@@ -37,10 +38,6 @@ extern "C" {
         return z_opp_i64(f, s, std::multiplies<int64_t>());
     }
 
-    std::vector<int64_t>* z_fdiv_i64(std::vector<int64_t>* f, std::vector<int64_t>* s){
-        return z_opp_i64(f, s, std::divides<int64_t>());
-    }
-
 }
 
 // O_OPPS
@@ -55,10 +52,6 @@ extern "C" {
     
     std::vector<int64_t>* o_mul_i64(std::vector<int64_t>* f, std::vector<int64_t>* s){
         return o_opp_i64(f, s, std::multiplies<int64_t>());
-    }
-
-    std::vector<int64_t>* o_fdiv_i64(std::vector<int64_t>* f, std::vector<int64_t>* s){
-        return o_opp_i64(f, s, std::divides<int64_t>());
     }
 }
 
@@ -75,9 +68,5 @@ extern "C" {
     
     std::vector<int64_t>* v_mul_i64(std::vector<int64_t>* f, std::vector<int64_t>* s, int64_t val){
         return v_opp_i64(f, s, std::multiplies<int64_t>(), val);
-    }
-
-    std::vector<int64_t>* v_fdiv_i64(std::vector<int64_t>* f, std::vector<int64_t>* s, int64_t val){
-        return v_opp_i64(f, s, std::divides<int64_t>(), val);
     }
 }

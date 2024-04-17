@@ -1,6 +1,5 @@
 #include <vector>
 
-
 extern "C" {
     std::vector<int64_t>* _create(){
         return new std::vector<int64_t>;

@@ -31,7 +31,8 @@ class Int64Vector(Vector):
         self.vector = _v64.lib._create()
         self.dtype = "int64"
     def __del__(self):
-        _v64.lib._delete(self.vector)
+        pass
+        # _v64.lib._delete(self.vector)
     def __len__(self):
         return _v64.lib._size(self.vector)
     def __getitem__(self, i):
