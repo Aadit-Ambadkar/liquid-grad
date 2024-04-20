@@ -27,6 +27,7 @@ def i32_subtract(vec_1: Int32Vector, vec_2: Int32Vector, filler=0):
         return fromVector(lib.z_sub_i32(vec_1.vector, vec_2.vector), dtype="int32")
     elif filler == 1:
         return fromVector(lib.o_sub_i32(vec_1.vector, vec_2.vector), dtype="int32")
+    
 def i32_multiply(vec_1: Int32Vector, vec_2: Int32Vector, filler=1):
     if filler == 0:
         return fromVector(lib.z_mul_i32(vec_1.vector, vec_2.vector), dtype="int32")

@@ -27,6 +27,7 @@ def i64_subtract(vec_1: Int64Vector, vec_2: Int64Vector, filler=0):
         return fromVector(lib.z_sub_i64(vec_1.vector, vec_2.vector), dtype="int64")
     elif filler == 1:
         return fromVector(lib.o_sub_i64(vec_1.vector, vec_2.vector), dtype="int64")
+
 def i64_multiply(vec_1: Int64Vector, vec_2: Int64Vector, filler=1):
     if filler == 0:
         return fromVector(lib.z_mul_i64(vec_1.vector, vec_2.vector), dtype="int64")
