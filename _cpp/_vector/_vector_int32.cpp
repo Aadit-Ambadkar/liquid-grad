@@ -4,6 +4,13 @@ extern "C" {
     std::vector<int32_t>* _create(){
         return new std::vector<int32_t>;
     }
+    std::vector<int32_t>* _from_arr(int32_t* p, int size) {
+        std::vector<int32_t>* v = new std::vector<int32_t>;
+        for (int i = 0; i < size; i++) {
+            v->push_back(p[i]);
+        }
+        return v;
+    }
     void _delete(std::vector<int32_t>* v){
         delete v;
     }

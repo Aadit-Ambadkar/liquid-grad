@@ -14,11 +14,12 @@ class _v64(object):
     lib._get.argtypes = [ctypes.c_void_p, ctypes.c_int]
     lib._push_back.restype = None
     lib._push_back.argtypes = [ctypes.c_void_p, ctypes.c_int64]
+    lib._from_arr.restype = ctypes.c_void_p
+    lib._from_arr.argtypes = [ctypes.c_void_p, ctypes.c_int]
     
     def fromList(li):
         arr = Int64Vector()
-        for i in li:
-            arr.append(i)
+        arr.populate(li)
         return arr
 
     def fromVector(vec):
@@ -44,5 +45,7 @@ class Int64Vector(Vector):
             yield self.__getitem__(i)
     def __repr__(self):
         return f"[{', '.join(str(i) for i in self)}]"
+    def populate(self, li):
+        self.vector = _v64.lib._from_arr((ctypes.c_int64 * len(li))(*li), ctypes.c_int(len(li)))
     def append(self, i):
         _v64.lib._push_back(self.vector, ctypes.c_int64(i))
