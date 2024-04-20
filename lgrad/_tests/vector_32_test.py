@@ -2,7 +2,7 @@ from lgrad._python.vector import Int32Vector, fromList
 from lgrad._python import math as lmath
 
 test_arr_1 = [i for i in range(10)]
-test_arr_2 = [i for i in range(10,20)]
+test_arr_2 = [i for i in range(10,20,2)]
 
 def test_create():
     print("Test Create: ", end="")
@@ -40,27 +40,21 @@ def test_add():
     arr1 = fromList(test_arr_1)
     arr2 = fromList(test_arr_2)
     res = lmath.i32_add(arr1, arr2)
-    for i in range(len(res)):
-        print(res[i], end=" ")
-    print()
+    print(res)
 
 def test_sub():
     print("Test subtraction: ", end="")
     arr1 = fromList(test_arr_1)
     arr2 = fromList(test_arr_2)
     res = lmath.i32_subtract(arr1, arr2)
-    for i in range(len(res)):
-        print(res[i], end=" ")
-    print()
+    print(res)
 
 def test_mul():
     print("Test multiplication: ", end="")
     arr1 = fromList(test_arr_1)
     arr2 = fromList(test_arr_2)
     res = lmath.i32_multiply(arr1, arr2)
-    for i in range(len(res)):
-        print(res[i], end=" ")
-    print()
+    print(res)
 
 test_create()
 test_from_list()
@@ -70,4 +64,10 @@ test_add()
 test_sub()
 test_mul()
 
-
+"""Test Create: 0 1 2 3 4 5 6 7 8 9 
+Test fromList: 10 12 14 16 18 
+Test iter: 0 1 2 3 4 5 6 7 8 9
+Test str: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Test addition: [10, 13, 16, 19, 22, 5, 6, 7, 8, 9]
+Test subtraction: [-10, -11, -12, -13, -14, 5, 6, 7, 8, 9]
+Test multiplication: [0, 12, 28, 48, 72, 5, 6, 7, 8, 9]"""
