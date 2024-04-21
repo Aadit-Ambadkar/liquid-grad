@@ -3,12 +3,12 @@ from lgrad._python.load_so import load_so
 from .vector_base import Vector
 
 class _vF64(object):
-    lib = load_so("https://github.com/Aadit-Ambadkar/lg-compiled/raw/main/_vector_int64.so")
+    lib = load_so("https://github.com/Aadit-Ambadkar/lg-compiled/raw/main/_vector_float64.so")
     lib._create.restype = ctypes.c_void_p
     lib._create.argtypes = []
     lib._delete.restype = None
     lib._delete.argtypes = [ctypes.c_void_p]
-    lib._size.restype = ctypes.c_double
+    lib._size.restype = ctypes.c_int64
     lib._size.argtypes = [ctypes.c_void_p]
     lib._get.restype = ctypes.c_double
     lib._get.argtypes = [ctypes.c_void_p, ctypes.c_int]
@@ -18,19 +18,19 @@ class _vF64(object):
     lib._from_arr.argtypes = [ctypes.c_void_p, ctypes.c_int]
     
     def fromList(li):
-        arr = Int64Vector()
+        arr = DoubleVector()
         arr.populate(li)
         return arr
 
     def fromVector(vec):
-        arr = Int64Vector()
+        arr = DoubleVector()
         arr.vector = vec
         return arr
 
-class Int64Vector(Vector):
+class DoubleVector(Vector):
     def __init__(self):
         self.vector = _vF64.lib._create()
-        self.dtype = "int64"
+        self.dtype = "float64"
     def __del__(self):
         pass
         # _vF64.lib._delete(self.vector)

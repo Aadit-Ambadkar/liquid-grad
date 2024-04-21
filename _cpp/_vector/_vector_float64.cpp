@@ -14,7 +14,7 @@ extern "C" {
     void _delete(std::vector<double>* v){
         delete v;
     }
-    double _size(std::vector<double>* v){
+    int64_t _size(std::vector<double>* v){
         return v->size();
     }
     double _get(std::vector<double>* v, int i){
