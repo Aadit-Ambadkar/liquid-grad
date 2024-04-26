@@ -37,34 +37,42 @@ def test_str():
     print(arr)
     return arr
 
-# def test_add():
-#     print("Test addition: ", end="")
-#     arr1 = fromList(test_arr_1)
-#     arr2 = fromList(test_arr_2)
-#     res = lmath.i32_add(arr1, arr2)
-#     print(res)
+def test_add():
+    print("Test addition: ", end="")
+    arr1 = fromList(test_arr_1, dtype="float64")
+    arr2 = fromList(test_arr_2, dtype="float64")
+    res = lmath.f64_add(arr1, arr2)
+    print(res)
 
-# def test_sub():
-#     print("Test subtraction: ", end="")
-#     arr1 = fromList(test_arr_1)
-#     arr2 = fromList(test_arr_2)
-#     res = lmath.i32_subtract(arr1, arr2)
-#     print(res)
+def test_sub():
+    print("Test subtraction: ", end="")
+    arr1 = fromList(test_arr_1, dtype="float64")
+    arr2 = fromList(test_arr_2, dtype="float64")
+    res = lmath.f64_subtract(arr1, arr2)
+    print(res)
 
-# def test_mul():
-#     print("Test multiplication: ", end="")
-#     arr1 = fromList(test_arr_1)
-#     arr2 = fromList(test_arr_2)
-#     res = lmath.i32_multiply(arr1, arr2)
-#     print(res)
+def test_mul():
+    print("Test multiplication: ", end="")
+    arr1 = fromList(test_arr_1, dtype="float64")
+    arr2 = fromList(test_arr_2, dtype="float64")
+    res = lmath.f64_multiply(arr1, arr2)
+    print(res)
+
+def test_div():
+    print("Test multiplication: ", end="")
+    arr1 = fromList(test_arr_1, dtype="float64")
+    arr2 = fromList(test_arr_2, dtype="float64")
+    res = lmath.f64_divide(arr1, arr2)
+    print(res)
 
 test_create()
 test_from_list()
 test_iter()
 test_str()
-# test_add()
-# test_sub()
-# test_mul()
+test_add()
+test_sub()
+test_mul()
+test_div()
 
 """Test Create: 0 1 2 3 4 5 6 7 8 9 
 Test fromList: 10 12 14 16 18 

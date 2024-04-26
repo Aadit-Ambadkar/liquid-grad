@@ -37,7 +37,6 @@ extern "C" {
     std::vector<double>* z_mul_f64(std::vector<double>* f, std::vector<double>* s){
         return z_opp_f64(f, s, std::multiplies<double>());
     }
-
 }
 
 // O_OPPS
